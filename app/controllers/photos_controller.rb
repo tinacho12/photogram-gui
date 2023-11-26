@@ -65,7 +65,9 @@ class PhotosController < ApplicationController
 
     the_photo.save
     
-    redirect_to("/photos/" + the_photo.id.to_s)
+    next_url = "/photos/" + the_photo.id.to_s
+    redirect_to(next_url)
+    #redirect_to("/photos/" + the_photo.id.to_s)
     #render({ :template => "photo_templates/update"})
   end
 
