@@ -71,4 +71,8 @@ class PhotosController < ApplicationController
     #render({ :template => "photo_templates/update"})
   end
 
+  def comment
+    render({ :template => "photo_templates/comment" })
+  end
+
 end
