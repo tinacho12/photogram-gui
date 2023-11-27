@@ -4,11 +4,11 @@ Rails.application.routes.draw do
 
   get("/users", { :controller => "users", :action => "index" })
 
-  get("/insert_user", { :controller => "users", :action => "create" })
+  post("/insert_user", { :controller => "users", :action => "create" })
 
   get("/users/:username", { :controller => "users", :action => "show" })
 
-  get("/update_user/:modify_username", { :controller => "users", :action => "update" })
+  post("/update_user/:modify_username", { :controller => "users", :action => "update" })
 
   get("/photos", { :controller => "photos", :action => "index" })
 
@@ -16,8 +16,10 @@ Rails.application.routes.draw do
 
   get("/delete_photo/:id", { :controller => "photos", :action => "destroy" })
 
-  get("/insert_photo", { :controller => "photos", :action => "create" })
+  post("/insert_photo", { :controller => "photos", :action => "create" })
 
-  get("/update_photo/:modify_id", { :controller => "photos", :action => "update" })
+  post("/update_photo/:modify_id", { :controller => "photos", :action => "update" })
+
+  post("/add_comment", { :controller => "photos", :action => "comment" })
 
 end

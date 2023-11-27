@@ -32,18 +32,12 @@ class UsersController < ApplicationController
   end
 
   def update
-    original_username = params.fetch("username")
-
-    matching_usernames = User.where({ :username => original_username })
-    
-    @the_user = matching_usernames.first
-
-    new_username = params.fetch("updated_username")
-    @the_user.username = new_username
-    @the_user.save
-
-    next_url = "/users/" + @the_user.username.to_s
-    redirect_to(next_url)
+    user_id = params.fetch("modify_username")
+    my_input_username = params.fetch("updated_username")
+    the_user = User.where(id: user_id).first
+    the_user.username = my_input_username
+    the_user.save
+    redirect_to("/users/" + my_input_username)
   end
 
 end
